@@ -9,13 +9,13 @@ body {
   }
   
   .quest-box {
-    width: 400px;
+    width: 95%;
     border: 2px solid #3aa0ff;
     padding: 20px;
     background: rgba(10, 25, 40, 0.9);
   }
   .system-box {
-    width: 400px;
+    width: 95%;
     border: 2px solid #3aa0ff;
     padding: 20px;
     background: rgba(10, 25, 40, 0.9);
@@ -48,7 +48,8 @@ body {
   .goal {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 6px;
     margin: 10px 0;
   }
   
@@ -68,10 +69,10 @@ body {
   
   button {
     width: 100%;
-    padding: 10px;
+    padding: 14px;
     background: #3aa0ff;
     border: none;
-    margin-top: 15px;
+    margin-top: 10px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -135,3 +136,6 @@ body {
   }
 }
 
+*  {
+    touch-action: manipulation;
+}
