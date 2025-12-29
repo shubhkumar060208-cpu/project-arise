@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Quest System</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="style.css">
+ 
+
+</head>
+<body>
+
+  <audio id="bootSound" src="sounds/boot.wav" preload="auto"></audio>
+  <audio id="clickSound" src="sounds/click.wav" preload="auto"></audio>
+
+
+<div class="quest-box fade-in">
+  <div class="header">
+    <span class="icon">!</span>
+    <h1>QUEST INFO</h1>
+  </div>
+
+  <p class="subtitle">[Daily Quest: Strength Training has arrived.]</p>
+
+  <h2>WORKOUT</h2>
+
+  <div class="goal">
+    <span>Push-ups</span>
+    <input type="number" id="pushups" placeholder="0">
+    <span>/100</span>
+    <span class="check" id="pushupsCheck">☐</span>
+  </div>
+
+  <div class="goal">
+    <span>Sit-ups</span>
+    <input type="number"  id="situps" placeholder="0">
+    <span>/100</span>
+    <span class="check" id="situpsCheck">☐</span>
+  </div>
+
+  <div class="goal">
+    <span>Squats</span>
+    <input type="number" id="squats" placeholder="0">
+    <span>/100</span>
+    <span class="check" id="squatsCheck">☐</span>
+  </div>
+
+  <div class="goal">
+    <span>Running (km)</span>
+    <input type="number" id="running" placeholder="0">
+    <span>/10</span>
+    <span class="check" id="runningCheck">☐</span>
+  </div>
+
+  <button id="updatebtn" >UPDATE STATUS</button>
+
+
+  <button id="skillsbtn" data-link="skills.html" >OPEN SKILLS</button>
+  <p class="warning">
+    WARNING: Failure to complete the daily quest will result in an appropriate penalty.
+  </p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

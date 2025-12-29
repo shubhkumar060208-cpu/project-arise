@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Skills</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bootSound" src="sounds/boot.wav" preload="auto"></audio>
+    <audio id="clickSound" src="sounds/click.wav" preload="auto"></audio>
+
+<div class="system-box fade-in">
+    <div class="header">
+    <h2>SKILLS STATUS</h2></div>
+    <p class="subtitle">[Personal Growth Skills]</p>
+
+    <div class="goals">
+        <div class="goal">
+            <span>Coding(in hr.)</span>
+            <input type="number" id="coding" placeholder="0">
+        </div>
+
+        <div class="goal">
+            <span>Reading(pages)</span>
+            <input type="number" id="reading" placeholder="0">
+        </div>
+
+        <div class="goal">
+            <span>Meditation(in min.)</span>
+            <input type="number" id="meditation" placeholder="0">
+        </div>
+
+        <div class="goal">
+            <span>Discipline(/10)</span>
+            <input type="number" id="discipline" placeholder="0">
+        </div>
+    </div>
+
+    <button onclick="saveSkills()">SAVE SKILLS</button>
+
+   
+        <button data-link="index.html" style="margin-top:10px;">BACK TO QUEST</button>
+        <button data-link="experience.html">DAILY EXPERIENCE</button>
+        
+    
+
+    <p class="warning">SYSTEM NOTE: Skills grow with consistency.</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

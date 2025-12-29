@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Experience</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bootSound" src="sounds/boot.wav" preload="auto"></audio>
+    <audio id="clickSound" src="sounds/click.wav" preload="auto"></audio>
+
+<div class="system-box fade-in">
+    <div class="header"><h2>DAILY EXPERIENCE LOG</h2></div>
+    <p class="subtitle">[Reflection & Growth]</p>
+
+    <textarea id="experienceText" placeholder="Write what you learned today..." rows="6"></textarea>
+
+    <button id="toggleExperiences">SHOW LOGS</button>
+
+    <div id="experienceList"></div>
+
+    <button onclick="saveExperience()">SAVE EXPERIENCE</button>
+
+    <div id="experienceList" class="experience-list"></div>
+
+    
+        <button data-link="index.html" style="margin-top:10px;">BACK TO SYSTEM</button>
+   
+
+    <p class="warning">SYSTEM NOTE: Reflection increases awareness.</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

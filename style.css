@@ -1,0 +1,137 @@
+body {
+    background: radial-gradient(#0b1c2d, #050b12);
+    font-family: "Segoe UI", sans-serif;
+    color: #dff6ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .quest-box {
+    width: 400px;
+    border: 2px solid #3aa0ff;
+    padding: 20px;
+    background: rgba(10, 25, 40, 0.9);
+  }
+  .system-box {
+    width: 400px;
+    border: 2px solid #3aa0ff;
+    padding: 20px;
+    background: rgba(10, 25, 40, 0.9);
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #3aa0ff;
+    padding: 10px;
+  }
+  
+  .icon {
+    border: 1px solid #3aa0ff;
+    padding: 5px 10px;
+  }
+  
+  .subtitle {
+    margin: 15px 0;
+    text-align: center;
+    color: #9fdcff;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .goal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  
+  .goal input {
+    width: 50px;
+    background: black;
+    color: white;
+    border: 1px solid #3aa0ff;
+    text-align: center;
+  
+  }
+  
+  .check {
+    color: #00ff7f;
+    font-size: 20px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #3aa0ff;
+    border: none;
+    margin-top: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+  }
+  
+  .warning {
+    color: rgb(255, 28, 28);
+    font-size: 12px;
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+ textarea {
+    width: 100%;
+    background: black;
+    color: #00ffcc;
+    border: 1px solid #00ffcc;
+    padding: 10px;
+    font-family: monospace;
+    resize: none;
+    margin-left: -10px;
+}
+
+.entry {
+    border-top: 1px solid #00ffcc;
+    margin-top: 10px;
+    padding-top: 5px;
+    font-size: 14px;
+}
+.delete-btn {
+  margin-top: 5px;
+  background: transparent;
+  border: 1px solid red;
+  color: red;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.delete-btn:hover {
+  background: red;
+  color: black;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
