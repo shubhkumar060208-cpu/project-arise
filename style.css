@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
     background: radial-gradient(#0b1c2d, #050b12);
     font-family: "Segoe UI", sans-serif;
@@ -53,22 +58,29 @@ body {
   
   .goal {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 6px;
-    margin: 10px 0;
+    gap: 12px;
+    margin: 14px 0;
   }
   
-  .goal input {
-    width: 60%;
-    max-width: 150px;  
-    background: black;
-    color: white;
-    border: 1px solid #3aa0ff;
-    text-align: center;
-  
-  }
-  
+  .goal-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.goal-row input {
+  width: 70px;
+  background: black;
+  color: white;
+  border: 1px solid #3aa0ff;
+  text-align: center;
+}
+.target{
+    font-size: 14px;
+    color: #9fdcff;
+    
   .check {
     color: #00ff7f;
     font-size: 20px;
@@ -146,4 +158,5 @@ body {
 *  {
     touch-action: manipulation;
 }
+
 
