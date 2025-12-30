@@ -11,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    -webkit-text-size-adjust: 100%:
   }
   
   .quest-box {
@@ -66,16 +67,20 @@ body {
   .goal-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
+  justify-content: space-between;
+  width: 100%;
+  max-width:260px;
+  margin: 0 auto;
+  gap: 10px;  
 }
 
 .goal-row input {
-  width: 70px;
+  width: 60px;
   background: black;
   color: white;
   border: 1px solid #3aa0ff;
   text-align: center;
+  flex-shrink: 0;
 }
 .target{
     font-size: 14px;
@@ -84,6 +89,7 @@ body {
   .check {
     color: #00ff7f;
     font-size: 20px;
+    flex-shrink: 0;
   }
   
   button {
@@ -158,5 +164,6 @@ body {
 *  {
     touch-action: manipulation;
 }
+
 
 
