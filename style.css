@@ -123,6 +123,12 @@ body {
   buton:active{
     transform: scale(0.97);
   }
+   
+   button.toggle {
+  background: transparent;
+  border: 1px dashed #00ffcc;
+  color: #00ffcc;
+}
   
   .warning {
     color: rgb(255, 28, 28);
@@ -131,7 +137,10 @@ body {
     text-align: center;
   }
   
- textarea {
+ textarea {\
+    min-height: 120px;
+    line-height: 1.5;
+    border-radius: 6px;
     width: 100%;
     background: black;
     color: #00ffcc;
@@ -143,12 +152,23 @@ body {
 }
 
 .entry {
-    border-top: 1px solid #00ffcc;
-    margin-top: 10px;
-    padding-top: 5px;
+    animation: fadeIn 0.4s ease-out;
+    border-left: 3px solid #00ffcc;
+    margin: 10px 0;
+    padding: 8px 10px;
     font-size: 14px;
+    border-radius: 6px;
 }
+.entry strong {
+   color: #00ffcc;
+   font-size: 13px;
+   display: block;
+   margin-bottom: 4px;
+}
+   
 .delete-btn {
+   float: right;
+   border-radius: 4px;
   margin-top: 5px;
   background: transparent;
   border: 1px solid red;
@@ -188,5 +208,13 @@ body {
   padding-right: 5px;
 }
 
+#experienceList::-webkit-scrollbar {
+  width: 4px;
+}
+
+#experienceList::-webkit-scrollbar-thumb {
+  background: #00ffcc;
+  border-radius: 2px;
+}
 
 
