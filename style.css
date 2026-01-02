@@ -112,7 +112,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
   }
-  .secondary {
+ button.secondary {
   background: transparent;
   border: 1px solid #3aa0ff;
   color: #3aa0ff;
@@ -220,6 +220,7 @@ body {
 html{
    -webkit-text-size-adjust: 100%;
 }
+
 
 
 
