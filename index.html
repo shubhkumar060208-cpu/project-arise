@@ -29,44 +29,32 @@
 
   <h2>WORKOUT</h2>
 
-  <div class="goal">
+  <div class="goal-row">
   <span class="label">Push-ups</span>
-
-  <div class="goal-row">
-    <input type="number" id="pushups" placeholder="">
-    <span class="target">/100</span>
-    <span class="check" id="pushupsCheck">☐</span>
-  </div>
+  <input type="number" inputmode="numeric"  pattern="[0-9]*" id="pushups">
+  <span class="target">/100</span>
+  <span class="check" id="pushupsCheck">☐</span>
 </div>
 
-  <div class="goal">
+<div class="goal-row">
   <span class="label">Sit-ups</span>
-
-  <div class="goal-row">
-    <input type="number" id="situps" placeholder="">
-    <span class="target">/100</span>
-    <span class="check" id="situpsCheck">☐</span>
-  </div>
+  <input type="number" inputmode="numeric"  pattern="[0-9]*" id="situps">
+  <span class="target">/100</span>
+  <span class="check" id="situpsCheck">☐</span>
 </div>
 
-  <div class="goal">
-  <span class="label">pull-ups</span>
-
-  <div class="goal-row">
-    <input type="number" id="squats" placeholder="">
-    <span class="target">/100</span>
-    <span class="check" id="squatsCheck">☐</span>
-  </div>
+<div class="goal-row">
+  <span class="label">Pull-ups</span>
+  <input type="number" inputmode="numeric"  pattern="[0-9]*" id="pullups">
+  <span class="target">/100</span>
+  <span class="check" id="pullupsCheck">☐</span>
 </div>
 
-  <div class="goal">
+<div class="goal-row">
   <span class="label">Running</span>
-
-  <div class="goal-row">
-    <input type="number" id="running" placeholder="">
-    <span class="target">/10</span>
-    <span class="check" id="runningCheck">☐</span>
-  </div>
+  <input type="number" inputmode="numeric"  pattern="[0-9]*" id="running">
+  <span class="target">/10</span>
+  <span class="check" id="runningCheck">☐</span>
 </div>
   <button id="updatebtn" >UPDATE STATUS</button>
 
@@ -87,6 +75,7 @@ if ('serviceWorker' in navigator) {
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
