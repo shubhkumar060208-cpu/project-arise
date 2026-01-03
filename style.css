@@ -16,7 +16,7 @@ body {
   padding: 10px;
    
 }
-  }
+
   
   .quest-box {
     width: 100%;
@@ -77,11 +77,9 @@ body {
   .goal-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  max-width:260px;
-  margin: 0 auto;
-  gap: 10px;  
+  margin: 10px 0;
+  gap: 8px;  
 }
 
 .goal-row input {
@@ -90,12 +88,11 @@ body {
   color: white;
   border: 1px solid #3aa0ff;
   text-align: center;
-  flex-shrink: 0;
 }
 .target{
     font-size: 14px;
     color: #9fdcff;
-    
+}
   .check {
     color: #00ff7f;
     font-size: 20px;
@@ -220,6 +217,7 @@ body {
 html{
    -webkit-text-size-adjust: 100%;
 }
+
 
 
 
