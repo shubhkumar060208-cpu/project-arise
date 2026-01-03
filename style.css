@@ -75,15 +75,17 @@ body {
 }
   
   .goal-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 60px auto auto;   
   align-items: center;
-  width: 100%;
-  margin: 10px 0;
+  margin: 8px 0;
   gap: 8px;  
 }
 
 .goal-row input {
-  width: 55px;
+  width: 60px;
+  height: 28px;
+  font-size: 14px;
   background: black;
   color: white;
   border: 1px solid #3aa0ff;
@@ -96,8 +98,10 @@ body {
   .check {
     color: #00ff7f;
     font-size: 20px;
-    flex-shrink: 0;
   }
+.label{
+   font-size: 14px;
+   color: #dff6ff;
   
   button {
     width: 100%;
@@ -217,6 +221,7 @@ body {
 html{
    -webkit-text-size-adjust: 100%;
 }
+
 
 
 
