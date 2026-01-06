@@ -2,11 +2,10 @@
   "name": "ARISE",
   "short_name": "ARISE",
   "description": "ARISE - Daily Quest System",
-  "start_url": "/",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#020b16",
   "theme_color": "#0a84ff",
-  "scope": "/",
   "icons": [
     {
       "src": "./icons/icon-192.png",
@@ -21,6 +20,7 @@
     }
   ]
 }
+
 
 
 
