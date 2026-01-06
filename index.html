@@ -64,17 +64,16 @@
     WARNING: Failure to complete the daily quest will result in an appropriate penalty.
   </p>
 </div>
-
-  <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js');
-  });
+  
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./service-worker.js");
 }
 </script>
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
