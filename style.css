@@ -67,7 +67,7 @@ body {
   
   .goal-row {
   display: grid;
-  grid-template-columns: 1fr 60px auto auto;   
+  grid-template-columns: 1fr 60p 40px 40px;   
   align-items: center;
   margin: 8px 0;
   gap: 8px;  
@@ -94,17 +94,17 @@ body {
    font-size: 14px;
    color: #dff6ff;
 }
-  
 button {
-    width: 100%;
-    padding: 14px;
-    background: #3aa0ff;
-    border: none;
-    margin-top: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
  button.secondary {
   background: transparent;
   border: 1px solid #3aa0ff;
@@ -115,9 +115,16 @@ button {
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
   }
   buton:active{
-    transform: scale(0.97);
+    transform: scale(0.92);
   }
-   
+
+  button.complete {
+     background: #0a84ff;
+  }
+
+  button.incomplete {
+     background: rgba(255,255,255,0.15);
+  }
    button.toggle {
   background: transparent;
   border: 1px dashed #00ffcc;
@@ -213,6 +220,7 @@ button {
 html{
    -webkit-text-size-adjust: 100%;
 }
+
 
 
 
