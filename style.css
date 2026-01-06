@@ -20,7 +20,7 @@ body {
   
   .quest-box {
     width: 100%;
-    max-width: 420px;
+    max-width: 100%;
     margin: 20px auto;  
     border: 2px solid #3aa0ff;
     border-radius: 12px;
@@ -63,16 +63,7 @@ body {
     margin-bottom: 15px;
   }
   
-  .goal {
-  display: grid;
-  grid-template-columns: 1fr auto auto auto;
-  align-items: center;
-  gap: 8px;
-}
-.goal span{
-  font-size: 14px;
-  opacity: 0.85;
-}
+ 
   
   .goal-row {
   display: grid;
@@ -222,6 +213,7 @@ button {
 html{
    -webkit-text-size-adjust: 100%;
 }
+
 
 
 
