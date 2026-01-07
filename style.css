@@ -94,6 +94,11 @@ body {
    font-size: 14px;
    color: #dff6ff;
 }
+.buttons{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
 button {
   width: 100%;
   padding: 14px;
@@ -123,7 +128,7 @@ button.secondary {
   border: 1px solid #3aa0ff;
   color: #3aa0ff;
 }
-  buton:active{
+  button:active{
     transform: scale(0.92);
   }
 
@@ -229,6 +234,7 @@ button.secondary {
 html{
    -webkit-text-size-adjust: 100%;
 }
+
 
 
 
