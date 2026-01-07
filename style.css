@@ -74,7 +74,7 @@ body {
 }
 
 .goal-row input {
-  width: 60px;
+  width: 30px;
   height: 28px;
   font-size: 14px;
   background: black;
@@ -234,6 +234,7 @@ button.secondary {
 html{
    -webkit-text-size-adjust: 100%;
 }
+
 
 
 
