@@ -29,51 +29,47 @@
 
   <h2>WORKOUT</h2>
 
-  <div class="goal-row">
-  <span class="label">Push-ups</span>
-  <input type="number" inputmode="numeric"  pattern="[0-9]*" id="pushups">
-  <span class="target">/100</span>
-  <span class="check" id="pushupsCheck">☐</span>
-</div>
+  <div class="goal">
+    <span>Push-ups</span>
+    <input type="number" id="pushups" placeholder="0">
+    <span>/100</span>
+    <span class="check" id="pushupsCheck">☐</span>
+  </div>
 
-<div class="goal-row">
-  <span class="label">Sit-ups</span>
-  <input type="number" inputmode="numeric"  pattern="[0-9]*" id="situps">
-  <span class="target">/100</span>
-  <span class="check" id="situpsCheck">☐</span>
-</div>
+  <div class="goal">
+    <span>Sit-ups</span>
+    <input type="number"  id="situps" placeholder="0">
+    <span>/100</span>
+    <span class="check" id="situpsCheck">☐</span>
+  </div>
 
-<div class="goal-row">
-  <span class="label">Pull-ups</span>
-  <input type="number" inputmode="numeric"  pattern="[0-9]*" id="pullups">
-  <span class="target">/100</span>
-  <span class="check" id="pullupsCheck">☐</span>
-</div>
+  <div class="goal">
+    <span>Squats</span>
+    <input type="number" id="squats" placeholder="0">
+    <span>/100</span>
+    <span class="check" id="squatsCheck">☐</span>
+  </div>
 
-<div class="goal-row">
-  <span class="label">Running</span>
-  <input type="number" inputmode="numeric"  pattern="[0-9]*" id="running">
-  <span class="target">/10</span>
-  <span class="check" id="runningCheck">☐</span>
-</div>
-  <div class="buttons">
+  <div class="goal">
+    <span>Running (km)</span>
+    <input type="number" id="running" placeholder="0">
+    <span>/10</span>
+    <span class="check" id="runningCheck">☐</span>
+  </div>
+
   <button id="updatebtn" >UPDATE STATUS</button>
 
 
-  <button id="skillsbtn" style=" border: 1px solid #3aa0ff;" data-link="skills.html" >OPEN SKILLS</button>
+  <button id="skillsbtn" data-link="skills.html" >OPEN SKILLS</button>
   <p class="warning">
     WARNING: Failure to complete the daily quest will result in an appropriate penalty.
   </p>
 </div>
-  
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./service-worker.js");
-}
-</script>
+
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
