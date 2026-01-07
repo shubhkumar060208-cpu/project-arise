@@ -95,25 +95,34 @@ body {
    color: #dff6ff;
 }
 button {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
+  width: 100%;
+  padding: 14px;
+  background: #3aa0ff;
   border: none;
-  background: rgba(255,255,255,0.08);
-  color: white;
+  margin-top: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
- button.secondary {
+
+/* Desktop hover only */
+@media (hover: hover) {
+  button:hover {
+    box-shadow: 0 0 12px rgba(58,160,255,0.6);
+  }
+}
+
+/* Mobile tap feedback */
+button:active {
+  transform: scale(0.97);
+}
+
+button.secondary {
   background: transparent;
   border: 1px solid #3aa0ff;
   color: #3aa0ff;
 }
-  button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
-  }
   buton:active{
     transform: scale(0.92);
   }
@@ -220,6 +229,7 @@ button {
 html{
    -webkit-text-size-adjust: 100%;
 }
+
 
 
 
