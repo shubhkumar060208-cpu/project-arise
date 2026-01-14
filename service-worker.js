@@ -1,12 +1,15 @@
-const CACHE_NAME = "daily-quest-v1";
+const CACHE_NAME = "arise-v1";
 
 const FILES_TO_CACHE = [
-  "index.html",
-  "skills.html",
-  "experience.html",
-  "style.css",
-  "script.js",
-  "manifest.json"
+  "./",
+  "./index.html",
+  "./skills.html",
+  "./experience.html",
+  "./style.css",
+  "./script.js",
+  "./manifest.json",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png"
 ];
 
 self.addEventListener("install", event => {
