@@ -72,22 +72,6 @@ function saveExperience() {
 
 let experiencesVisible = false;
 
-const toggleBtn = document.getElementById("toggleExperiences");
-
-if (toggleBtn) {
-  toggleBtn.addEventListener("click", () => {
-    experiencesVisible = !experiencesVisible;
-
-    if (experiencesVisible) {
-      toggleBtn.textContent = "HIDE LOGS";
-      loadExperiences(true);
-    } else {
-      toggleBtn.textContent = "SHOW LOGS";
-      hideExperiences();
-    }
-  });
-}
-
 function hideExperiences() {
   const container = document.getElementById("experienceList");
   if (!container) return;
@@ -180,7 +164,21 @@ window.addEventListener("DOMContentLoaded", () => {
 }
     });
   });
+      const toggleBtn = document.getElementById("toggleExperiences");
 
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      experiencesVisible = !experiencesVisible;
+
+      if (experiencesVisible) {
+        toggleBtn.textContent = "HIDE LOGS";
+        loadExperiences(true);
+      } else {
+        toggleBtn.textContent = "SHOW LOGS";
+        hideExperiences();
+      }
+    });
+  }
 });
 
 function saveSkills() {
@@ -215,4 +213,5 @@ function checkDailyReset() {
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
+
 }
