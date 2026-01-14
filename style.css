@@ -1,12 +1,15 @@
 body {
-    background: radial-gradient(#0b1c2d, #050b12);
-    font-family: "Segoe UI", sans-serif;
-    color: #dff6ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+  background: radial-gradient(#0b1c2d, #050b12);
+  font-family: "Segoe UI", sans-serif;
+  color: #dff6ff;
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;   /* mobile-safe */
+  padding: 10px;
+}
+
   
   .quest-box {
     width: 400px;
@@ -135,4 +138,7 @@ body {
   }
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
 
