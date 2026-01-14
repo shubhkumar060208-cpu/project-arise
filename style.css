@@ -142,3 +142,14 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+.experience-box {
+  max-height: 40vh;       /* fixed visible area */
+  overflow-y: auto;       /* scroll inside */
+  margin-top: 10px;
+  border-top: 1px solid #00ffcc;
+}
+
+/* Optional: hide scrollbar but keep scroll */
+.experience-box::-webkit-scrollbar {
+  width: 0;
+}
