@@ -1,7 +1,6 @@
 const bootSound = document.getElementById("bootSound");
 const clickSound = document.getElementById("clickSound");
 
-
 function saveProgress() {
   const goals = {
     pushups: 100,
@@ -10,17 +9,32 @@ function saveProgress() {
     running: 10
   };
 
-  for (let goal in goals) {
-    let value = Number(document.getElementById(goal).value);
-    localStorage.setItem(goal, value);
+  let completedToday = true;
 
-    let check = document.getElementById(goal + "Check");
-    if (value >= goals[goal]) {
-      check.textContent = "✔";
-    } else {
+  for (let goal in goals) {
+    const inputEl = document.getElementById(goal);
+    const check = document.getElementById(goal + "Check");
+
+    if (!inputEl.value.trim()) {
+      completedToday = false;
       check.textContent = "☐";
+      continue;
+    }
+
+    const value = Number(inputEl.value);
+
+    if (isNaN(value) || value < 0 || value > goals[goal]) {
+      completedToday = false;
+      check.textContent = "☐";
+    } else {
+      localStorage.setItem(goal, value);
+      check.textContent = "✔";
     }
   }
+
+  updateStreak(completedToday);
+  updateStreakUI();
+
   localStorage.setItem("lastDailyReset", new Date().toDateString());
 }
 
@@ -215,3 +229,4 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 
 }
+
