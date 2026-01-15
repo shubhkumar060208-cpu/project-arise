@@ -33,6 +33,10 @@ function saveProgress() {
   }
 
   updateStreak(completedToday);
+  if (completedToday) {
+  showDisiplineEarned();
+}
+
   updateStreakUI();
 
   localStorage.setItem("lastDailyReset", new Date().toDateString());
@@ -228,5 +232,14 @@ function checkDailyReset() {
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 
+}
+
+function showDisciplineEarned() {
+  const overlay = document.getElementById("disciplineOverlay");
+  overlay.classList.add("show");
+
+  setTimeout(() => {
+    overlay.classList.remove("show");
+  }, 1800);
 }
 
