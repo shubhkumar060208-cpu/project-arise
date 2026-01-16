@@ -295,3 +295,55 @@ function parseVoiceInput(text) {
   }
 }
 
+//////////////////// voice input for skils//////////////////////
+
+const skillsVoiceBtn = document.getElementById("skillsVoiceBtn");
+
+if (skillsVoiceBtn) {
+  skillsVoiceBtn.addEventListener("click", startSkillsVoiceInput);
+}
+
+function startSkillsVoiceInput() {
+  if (!("webkitSpeechRecognition" in window)) {
+    alert("Voice input not supported");
+    return;
+  }
+
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.start();
+
+  recognition.onresult = (event) => {
+    const text = event.results[0][0].transcript.toLowerCase();
+
+    fillNumber(text, "coding");
+    fillNumber(text, "reading");
+    fillNumber(text, "meditation");
+    fillNumber(text, "discipline");
+  };
+}
+
+////////////////////   voice input for experience //////////////////
+
+const experienceVoiceBtn = document.getElementById("experienceVoiceBtn");
+
+if (experienceVoiceBtn) {
+  experienceVoiceBtn.addEventListener("click", startExperienceVoiceInput);
+}
+
+function startExperienceVoiceInput() {
+  if (!("webkitSpeechRecognition" in window)) {
+    alert("Voice input not supported");
+    return;
+  }
+
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.start();
+
+  recognition.onresult = (event) => {
+    document.getElementById("experienceText").value =
+      event.results[0][0].transcript;
+  };
+}
+
