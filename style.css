@@ -73,7 +73,7 @@ body {
     width: 100%;
     padding: 10px;
     background: #3aa0ff;
-    border: none;
+    border: 1px solid #3aa0ff;
     margin-top: 15px;
     font-weight: bold;
     cursor: pointer;
@@ -213,3 +213,4 @@ html {
   border-radius: 6px;
   font-size: 14px;
 }
+
