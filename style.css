@@ -8,6 +8,7 @@ body {
   justify-content: center;
   align-items: flex-start;   /* mobile-safe */
   padding: 10px;
+  margin-top: 50px;
 }
 
   
@@ -213,4 +214,5 @@ html {
   border-radius: 6px;
   font-size: 14px;
 }
+
 
