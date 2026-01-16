@@ -300,7 +300,13 @@ function parseVoiceInput(text) {
 const skillsVoiceBtn = document.getElementById("skillsVoiceBtn");
 
 if (skillsVoiceBtn) {
-voiceBtn.addEventListener("click", startVoiceInput);
+voiceBtn.addEventListener("click", () => {
+  if (document.getElementById("coding")) {
+    startSkillsVoiceInput();   // skills page
+  } else if (document.getElementById("pushups")) {
+    startVoiceInput();         // quest page
+  }
+});
 }
 
 function startSkillsVoiceInput() {
@@ -422,6 +428,7 @@ function stopExperienceVoice(text) {
     saveExperience(); // your existing function
   }
 }
+
 
 
 
