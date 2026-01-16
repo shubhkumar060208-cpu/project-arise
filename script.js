@@ -323,8 +323,36 @@ function startSkillsVoiceInput() {
   };
 }
 
+/////////////////////////   smart skill parser  //////////////////////////////////////////////
+function applySkillVoice(text) {
+  const skills = {
+    coding: ["coding", "code"],
+    reading: ["reading", "read"],
+    meditation: ["meditation", "meditate"],
+    discipline: ["discipline"]
+  };
+
+  for (let skill in skills) {
+    for (let keyword of skills[skill]) {
+      const regex = new RegExp(`${keyword}\\s*(\\d+)|(\\d+)\\s*${keyword}`);
+      const match = text.match(regex);
+
+      if (match) {
+        const value = match[1] || match[2];
+        const input = document.getElementById(skill);
+        if (input) input.value = value;
+      }
+    }
+  }
+}
+
+
 
 ////////////////////   voice input for experience //////////////////
+
+let experienceRecognition;
+let silenceTimer;
+const SILENCE_LIMIT = 2000; // 2 seconds
 
 const experienceVoiceBtn = document.getElementById("experienceVoiceBtn");
 
@@ -348,26 +376,50 @@ function startExperienceVoiceInput() {
   };
 }
 
-/////////////////////////   smart skill parser  //////////////////////////////////////////////
-function applySkillVoice(text) {
-  const skills = {
-    coding: ["coding", "code"],
-    reading: ["reading", "read"],
-    meditation: ["meditation", "meditate"],
-    discipline: ["discipline"]
+function startExperienceVoice() {
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    alert("Voice input not supported");
+    return;
+  }
+
+  experienceRecognition = new SpeechRecognition();
+  experienceRecognition.lang = "en-US";
+  experienceRecognition.continuous = true;
+  experienceRecognition.interimResults = false;
+
+  let finalText = "";
+
+  experienceRecognition.onresult = (event) => {
+    const lastResult = event.results[event.results.length - 1][0].transcript;
+    finalText += lastResult + " ";
+
+    document.getElementById("experienceText").value = finalText;
+
+    // 🔁 Reset silence timer every time user speaks
+    clearTimeout(silenceTimer);
+    silenceTimer = setTimeout(() => {
+      stopExperienceVoice(finalText);
+    }, SILENCE_LIMIT);
   };
 
-  for (let skill in skills) {
-    for (let keyword of skills[skill]) {
-      const regex = new RegExp(`${keyword}\\s*(\\d+)|(\\d+)\\s*${keyword}`);
-      const match = text.match(regex);
+  experienceRecognition.onerror = (e) => {
+    console.error("Voice error:", e);
+  };
 
-      if (match) {
-        const value = match[1] || match[2];
-        const input = document.getElementById(skill);
-        if (input) input.value = value;
-      }
-    }
+  experienceRecognition.start();
+}
+
+
+function stopExperienceVoice(text) {
+  if (experienceRecognition) {
+    experienceRecognition.stop();
+  }
+
+  if (text.trim().length > 0) {
+    saveExperience(); // your existing function
   }
 }
 
