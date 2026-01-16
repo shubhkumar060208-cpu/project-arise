@@ -311,17 +311,18 @@ function startSkillsVoiceInput() {
 
   const recognition = new webkitSpeechRecognition();
   recognition.lang = "en-US";
+  recognition.continuous = false;
+  recognition.interimResults = false;
   recognition.start();
 
   recognition.onresult = (event) => {
     const text = event.results[0][0].transcript.toLowerCase();
+    console.log("Voice:", text);
 
-    fillNumber(text, "coding");
-    fillNumber(text, "reading");
-    fillNumber(text, "meditation");
-    fillNumber(text, "discipline");
+    applySkillVoice(text);
   };
 }
+
 
 ////////////////////   voice input for experience //////////////////
 
@@ -345,5 +346,28 @@ function startExperienceVoiceInput() {
     document.getElementById("experienceText").value =
       event.results[0][0].transcript;
   };
+}
+
+/////////////////////////   smart skill parser  //////////////////////////////////////////////
+function applySkillVoice(text) {
+  const skills = {
+    coding: ["coding", "code"],
+    reading: ["reading", "read"],
+    meditation: ["meditation", "meditate"],
+    discipline: ["discipline"]
+  };
+
+  for (let skill in skills) {
+    for (let keyword of skills[skill]) {
+      const regex = new RegExp(`${keyword}\\s*(\\d+)|(\\d+)\\s*${keyword}`);
+      const match = text.match(regex);
+
+      if (match) {
+        const value = match[1] || match[2];
+        const input = document.getElementById(skill);
+        if (input) input.value = value;
+      }
+    }
+  }
 }
 
