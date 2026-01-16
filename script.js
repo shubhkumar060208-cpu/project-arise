@@ -243,3 +243,55 @@ function showDisciplineEarned() {
   }, 1800);
 }
 
+// ================= VOICE INPUT =================
+
+const voiceBtn = document.getElementById("voiceBtn");
+
+if (voiceBtn) {
+  voiceBtn.addEventListener("click", startVoiceInput);
+}
+
+function startVoiceInput() {
+  if (!("webkitSpeechRecognition" in window)) {
+    alert("Voice input not supported on this device");
+    return;
+  }
+
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  recognition.start();
+
+  recognition.onresult = function (event) {
+    const text = event.results[0][0].transcript.toLowerCase();
+    console.log("Voice:", text);
+    parseVoiceInput(text);
+  };
+
+  recognition.onerror = function () {
+    alert("Voice recognition failed. Try again.");
+  };
+}
+
+function parseVoiceInput(text) {
+  const exercises = {
+    pushups: ["pushup", "push-ups", "push ups"],
+    situps: ["situp", "sit-ups", "sit ups"],
+    squats: ["squat", "squats"],
+    running: ["run", "running"]
+  };
+
+  for (let field in exercises) {
+    exercises[field].forEach(keyword => {
+      const regex = new RegExp("(\\d+)\\s*" + keyword);
+      const match = text.match(regex);
+
+      if (match && document.getElementById(field)) {
+        document.getElementById(field).value = match[1];
+      }
+    });
+  }
+}
+
