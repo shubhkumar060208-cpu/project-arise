@@ -330,6 +330,27 @@ function startSkillsVoiceInput() {
 }
 
 /////////////////////////   smart skill parser  //////////////////////////////////////////////
+const numberWords = {
+  zero: 0,
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6,
+  seven: 7,
+  eight: 8,
+  nine: 9,
+  ten: 10,
+  eleven: 11,
+  twelve: 12,
+  fifteen: 15,
+  twenty: 20,
+  thirty: 30,
+  forty: 40,
+  fifty: 50
+};
+
 function applySkillVoice(text) {
   const skills = {
     coding: ["coding", "code"],
@@ -338,15 +359,23 @@ function applySkillVoice(text) {
     discipline: ["discipline"]
   };
 
+  // Convert number words to digits
+  Object.keys(numberWords).forEach(word => {
+    const regex = new RegExp(`\\b${word}\\b`, "g");
+    text = text.replace(regex, numberWords[word]);
+  });
+
   for (let skill in skills) {
     for (let keyword of skills[skill]) {
-      const regex = new RegExp(`${keyword}\\s*(\\d+)|(\\d+)\\s*${keyword}`);
+      const regex = new RegExp(`(\\d+)\\s*${keyword}|${keyword}\\s*(\\d+)`);
       const match = text.match(regex);
 
       if (match) {
         const value = match[1] || match[2];
         const input = document.getElementById(skill);
-        if (input) input.value = value;
+        if (input) {
+          input.value = value;
+        }
       }
     }
   }
@@ -440,6 +469,7 @@ self.addEventListener("activate", event => {
     )
   );
 });
+
 
 
 
