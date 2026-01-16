@@ -1,4 +1,4 @@
-const CACHE_NAME = "arise-v1.3";
+const CACHE_NAME = "arise-v1.31";
 
 const FILES_TO_CACHE = [
   "./",
@@ -44,6 +44,7 @@ self.addEventListener("fetch", event => {
     })
   );
 });
+
 
 
 
