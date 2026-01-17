@@ -44,7 +44,7 @@ function saveProgress() {
 
 window.onload = function () {
   
- scheduleTimedReminder(new Date().getHours(), new Date().getMinutes());
+  scheduleTimedReminder(17, 14); // 9:00 PM
 
   scheduleDailyReminder();
   requestNotificationPermission();
@@ -530,4 +530,5 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     localStorage.setItem("lastNotificationDate", today);
   }
 }
+
 
