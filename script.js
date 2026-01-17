@@ -43,6 +43,8 @@ function saveProgress() {
 }
 
 window.onload = function () {
+  
+  scheduleTimedReminder(9, 0);
 
   scheduleDailyReminder();
   requestNotificationPermission();
@@ -510,6 +512,20 @@ function scheduleDailyReminder() {
   const today = new Date().toDateString();
 
   if (lastNotified !== today) {
+    showDailyNotification();
+    localStorage.setItem("lastNotificationDate", today);
+  }
+}
+
+function scheduleTimedReminder(hour = 9, minute = 0) {
+  const now = new Date();
+  const today = now.toDateString();
+  const lastNotified = localStorage.getItem("lastNotificationDate");
+
+  const targetTime = new Date();
+  targetTime.setHours(hour, minute, 0, 0);
+
+  if (now >= targetTime && lastNotified !== today) {
     showDailyNotification();
     localStorage.setItem("lastNotificationDate", today);
   }
