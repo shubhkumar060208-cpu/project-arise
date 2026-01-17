@@ -44,6 +44,9 @@ function saveProgress() {
 
 window.onload = function () {
 
+  scheduleDailyReminder();
+  requestNotificationPermission();
+  
   checkDailyReset();
 
   // Workout
@@ -470,7 +473,44 @@ self.addEventListener("activate", event => {
   );
 });
 
+////////////////////////////  notifications  ////////////////////////////////////////
 
+function requestNotificationPermission() {
+  if (!("Notification" in window)) {
+    alert("Notifications not supported on this device");
+    return;
+  }
 
+  if (Notification.permission === "default") {
+    Notification.requestPermission().then(permission => {
+      if (permission === "granted") {
+        console.log("Notifications enabled");
+      }
+    });
+  }
+}
 
+function showDailyNotification() {
+  if (Notification.permission !== "granted") return;
 
+  navigator.serviceWorker.ready.then(registration => {
+    registration.showNotification("ARISE ⚔️", {
+      body: "Daily quest awaits. Discipline decides your future.",
+      icon: "icons/icon-192.png",
+      badge: "icons/icon-192.png",
+      vibrate: [100, 50, 100],
+      tag: "daily-reminder",
+      renotify: true
+    });
+  });
+}
+
+function scheduleDailyReminder() {
+  const lastNotified = localStorage.getItem("lastNotificationDate");
+  const today = new Date().toDateString();
+
+  if (lastNotified !== today) {
+    showDailyNotification();
+    localStorage.setItem("lastNotificationDate", today);
+  }
+}
