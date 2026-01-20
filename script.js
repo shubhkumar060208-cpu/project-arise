@@ -271,7 +271,6 @@ if (voiceBtn) {
 
 function startVoiceInput() {
   if (!("webkitSpeechRecognition" in window)) {
-    alert("Voice input not supported on this device");
     return;
   }
 
@@ -289,7 +288,7 @@ function startVoiceInput() {
   };
 
   recognition.onerror = function () {
-    alert("Voice recognition failed. Try again.");
+   return;
   };
 }
 
@@ -329,7 +328,6 @@ skillsVoiceBtn.addEventListener("click", () => {
 
 function startSkillsVoiceInput() {
   if (!("webkitSpeechRecognition" in window)) {
-    alert("Voice input not supported");
     return;
   }
 
@@ -415,7 +413,6 @@ if (experienceVoiceBtn) {
 
 function startExperienceVoiceInput() {
   if (!("webkitSpeechRecognition" in window)) {
-    alert("Voice input not supported");
     return;
   }
 
@@ -434,7 +431,6 @@ function startExperienceVoice() {
     window.SpeechRecognition || window.webkitSpeechRecognition;
 
   if (!SpeechRecognition) {
-    alert("Voice input not supported");
     return;
   }
 
@@ -482,7 +478,6 @@ function stopExperienceVoice(text) {
 
 function requestNotificationPermission() {
   if (!("Notification" in window)) {
-    alert("Notifications not supported on this device");
     return;
   }
 
@@ -542,6 +537,7 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     el.addEventListener("change", saveSkills);
   }
 });
+
 
 
 
