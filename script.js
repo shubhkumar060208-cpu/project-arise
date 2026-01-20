@@ -398,7 +398,7 @@ function applySkillVoice(text) {
       if (match) {
         const value = match[1] || match[2];
         const input = document.getElementById(skill);
-        if (input) {
+        if (!input) continue; {
           input.value = value;
         }
       }
@@ -552,6 +552,7 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     el.addEventListener("change", saveSkills);
   }
 });
+
 
 
 
