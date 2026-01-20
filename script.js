@@ -15,7 +15,7 @@ function saveProgress() {
     const inputEl = document.getElementById(goal);
     const check = document.getElementById(goal + "Check");
 
-    if (!inputEl.value.trim()) {
+    if (inputEl.value === "")) {
       completedToday = false;
       check.textContent = "☐";
       continue;
@@ -39,7 +39,9 @@ function saveProgress() {
 
   updateStreakUI();
 
+ if (completedToday) {
   localStorage.setItem("lastDailyReset", new Date().toDateString());
+}
 }
 
 window.onload = function () {
@@ -183,7 +185,8 @@ window.addEventListener("DOMContentLoaded", () => {
       }
       const updateBtn = document.getElementById("updatebtn");
       if (updateBtn) {
-      updateBtn.addEventListener("click", saveProgress);
+       updateBtn.addEventListener("click", saveProgress);
+}
 }
     });
   });
@@ -224,9 +227,6 @@ function checkDailyReset() {
   if (lastReset !== today) {
     // Reset daily goals
     ["pushups", "situps", "squats", "running"].forEach(goal => {
-      localStorage.setItem(goal, 0);
-    });
-    ["coding", "reading", "meditation", "discipline"].forEach(goal => {
       localStorage.setItem(goal, 0);
     });
 
@@ -305,7 +305,7 @@ function parseVoiceInput(text) {
 const skillsVoiceBtn = document.getElementById("skillsVoiceBtn");
 
 if (skillsVoiceBtn) {
-voiceBtn.addEventListener("click", () => {
+skillsVoiceBtn.addEventListener("click", () => {
   if (document.getElementById("coding")) {
     startSkillsVoiceInput();   // skills page
   } else if (document.getElementById("pushups")) {
@@ -463,17 +463,7 @@ function stopExperienceVoice(text) {
   }
 }
 
-//////////////////////  auto cache delete /////////////////////
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.filter(k => k !== CACHE_NAME)
-            .map(k => caches.delete(k))
-      )
-    )
-  );
-});
+
 
 ////////////////////////////  notifications  ////////////////////////////////////////
 
@@ -530,5 +520,6 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     localStorage.setItem("lastNotificationDate", today);
   }
 }
+
 
 
