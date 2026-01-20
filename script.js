@@ -85,8 +85,9 @@ window.onload = function () {
 //////////////////// experience.html    ////////////////////////////
 
 function saveExperience() {
-  let text = document.getElementById("experienceText").value;
-  if (text.trim() === "") return;
+  const input = document.getElementById("experienceText");
+  if (!input) return
+  let text = input.value;  
 
   let date = new Date().toLocaleDateString();
   let experiences = JSON.parse(localStorage.getItem("experiences")) || [];
@@ -540,6 +541,7 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     el.addEventListener("change", saveSkills);
   }
 });
+
 
 
 
