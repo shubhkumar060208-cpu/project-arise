@@ -476,7 +476,9 @@ function stopExperienceVoice(text) {
   }
 
   if (text.trim().length > 0) {
-    saveExperience(); // your existing function
+    if (typeof saveExperience === "function") {
+    saveExperience();
+    }
   }
 }
 
@@ -545,6 +547,7 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     el.addEventListener("change", saveSkills);
   }
 });
+
 
 
 
