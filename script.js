@@ -15,6 +15,8 @@ function saveProgress() {
     const inputEl = document.getElementById(goal);
     const check = document.getElementById(goal + "Check");
 
+    if (!inputEl || !check) continue;
+    
     if (inputEl.value === "") {
       completedToday = false;
       check.textContent = "☐";
@@ -537,6 +539,7 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     el.addEventListener("change", saveSkills);
   }
 });
+
 
 
 
