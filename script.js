@@ -240,7 +240,7 @@ function checkDailyReset() {
       now.getFullYear() !== last.getFullYear()) {
 
     ["pushups", "situps", "squats", "running"].forEach(goal => {
-      localStorage.setItem(goal, 0);
+      localStorage.setItem(goal);
     });
 
     localStorage.setItem("lastDailyReset", now.toDateString());
@@ -543,14 +543,8 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
   }
 });
 
-["pushups", "situps", "squats", "running"].forEach(id => {
-  const el = document.getElementById(id);
-  if (el) {
-    el.addEventListener("input", () => {
-      localStorage.setItem(id, el.value);
-    });
-  }
-});
+
+
 
 
 
