@@ -256,6 +256,7 @@ if ("serviceWorker" in navigator) {
 
 function showDisciplineEarned() {
   const overlay = document.getElementById("disciplineOverlay");
+  if (!overlay) return;
   overlay.classList.add("show");
 
   setTimeout(() => {
@@ -539,6 +540,7 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     el.addEventListener("change", saveSkills);
   }
 });
+
 
 
 
