@@ -15,7 +15,7 @@ function saveProgress() {
     const inputEl = document.getElementById(goal);
     const check = document.getElementById(goal + "Check");
 
-    if (inputEl.value === "")) {
+    if (inputEl.value === "") {
       completedToday = false;
       check.textContent = "☐";
       continue;
@@ -183,11 +183,12 @@ window.addEventListener("DOMContentLoaded", () => {
           window.location.href = link;
         }, 400); // sound-safe delay
       }
+    
+}
       const updateBtn = document.getElementById("updatebtn");
       if (updateBtn) {
        updateBtn.addEventListener("click", saveProgress);
-}
-}
+      }
     });
   });
       const toggleBtn = document.getElementById("toggleExperiences");
@@ -520,6 +521,7 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     localStorage.setItem("lastNotificationDate", today);
   }
 }
+
 
 
 
