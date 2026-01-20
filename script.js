@@ -449,8 +449,12 @@ function startExperienceVoice() {
     const lastResult = event.results[event.results.length - 1][0].transcript;
     finalText += lastResult + " ";
 
-    document.getElementById("experienceText").value = finalText;
-
+    const expInput = document.getElementbyId("experienceText");
+    if (expInput) {
+      expInput.value = finalText;
+    }
+    
+   
     // 🔁 Reset silence timer every time user speaks
     clearTimeout(silenceTimer);
     silenceTimer = setTimeout(() => {
@@ -541,6 +545,7 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     el.addEventListener("change", saveSkills);
   }
 });
+
 
 
 
