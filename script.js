@@ -313,9 +313,10 @@ function parseVoiceInput(text) {
       const regex = new RegExp("(\\d+)\\s*" + keyword);
       const match = text.match(regex);
 
-      if (match && document.getElementById(field)) {
-        document.getElementById(field).value = match[1];
-      }
+      const input = document.getElementById(field);
+        if (match && input) {
+      input.value = match[1];
+    }
     });
   }
 }
@@ -551,6 +552,7 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     el.addEventListener("change", saveSkills);
   }
 });
+
 
 
 
