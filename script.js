@@ -247,7 +247,7 @@ function checkDailyReset() {
       now.getFullYear() !== last.getFullYear()) {
 
     ["pushups", "situps", "squats", "running"].forEach(goal => {
-      localStorage.setItem(goal);
+      localStorage.setItem(goal, 0);
     });
 
     localStorage.setItem("lastDailyReset", now.toDateString());
@@ -551,6 +551,7 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     el.addEventListener("change", saveSkills);
   }
 });
+
 
 
 
