@@ -214,10 +214,14 @@ if (updateBtn) {
 });
 
 function saveSkills() {
-  localStorage.setItem("coding", document.getElementById("coding").value);
-  localStorage.setItem("reading", document.getElementById("reading").value);
-  localStorage.setItem("meditation", document.getElementById("meditation").value);
-  localStorage.setItem("discipline", document.getElementById("discipline").value);
+  const coding = document.getElementById("coding");
+if (coding) localStorage.setItem("coding", coding.value);
+  const reading = document.getElementById("reading");
+if (reading) localStorage.setItem("reading", reading.value);
+ const meditation = document.getElementById("meditation");
+if (meditation) localStorage.setItem("meditation", meditation.value);
+  const discipline = document.getElementById("discipline");
+if (discipline) localStorage.setItem("discipline", discipline.value);
 }
 
 
@@ -547,6 +551,7 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     el.addEventListener("change", saveSkills);
   }
 });
+
 
 
 
