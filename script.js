@@ -167,30 +167,28 @@ window.addEventListener("DOMContentLoaded", () => {
   }, { once: true });
 
   // Click sound + optional navigation
-  document.querySelectorAll("button").forEach(btn => {
-    btn.addEventListener("click", () => {
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", () => {
 
-      // 🔊 Play click sound
-      if (clickSound) {
-        clickSound.currentTime = 0;
-        clickSound.play().catch(() => {});
-      }
+    if (clickSound) {
+      clickSound.currentTime = 0;
+      clickSound.play().catch(() => {});
+    }
 
-      // ⏳ Navigate AFTER sound finishes
-      const link = btn.dataset.link;
-      if (link) {
-        setTimeout(() => {
-          window.location.href = link;
-        }, 400); // sound-safe delay
-      }
-    
-}
-      const updateBtn = document.getElementById("updatebtn");
-      if (updateBtn) {
-       updateBtn.addEventListener("click", saveProgress);
-      }
-    });
+    const link = btn.dataset.link;
+    if (link) {
+      setTimeout(() => {
+        window.location.href = link;
+      }, 400);
+    }
+
   });
+});
+
+const updateBtn = document.getElementById("updatebtn");
+if (updateBtn) {
+  updateBtn.addEventListener("click", saveProgress);
+}
       const toggleBtn = document.getElementById("toggleExperiences");
 
   if (toggleBtn) {
@@ -225,14 +223,12 @@ function checkDailyReset() {
   const lastReset = localStorage.getItem("lastDailyReset");
   const today = new Date().toDateString();
 
-  if (lastReset !== today) {
-    // Reset daily goals
-    ["pushups", "situps", "squats", "running"].forEach(goal => {
-      localStorage.setItem(goal, 0);
-    });
-
-    localStorage.setItem("lastDailyReset", today);
-  }
+  if (!lastReset || lastReset !== today) {
+  ["pushups","situps","squats","running"].forEach(goal => {
+    localStorage.setItem(goal, "");
+  });
+  localStorage.setItem("lastDailyReset", today);
+}
 }
 
 if ("serviceWorker" in navigator) {
@@ -398,7 +394,7 @@ const SILENCE_LIMIT = 2000; // 2 seconds
 const experienceVoiceBtn = document.getElementById("experienceVoiceBtn");
 
 if (experienceVoiceBtn) {
-  experienceVoiceBtn.addEventListener("click", startExperienceVoiceInput);
+  experienceVoiceBtn.addEventListener("click", startExperienceVoice);
 }
 
 function startExperienceVoiceInput() {
@@ -522,6 +518,14 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
   }
 }
 
+//  -----  skills save input function call ----- //
+
+["coding", "reading", "meditation", "discipline"].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener("change", saveSkills);
+  }
+});
 
 
 
