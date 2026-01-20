@@ -221,14 +221,26 @@ window.addEventListener("beforeunload", () => {
 ///  reset daily goals function  //////
 function checkDailyReset() {
   const lastReset = localStorage.getItem("lastDailyReset");
-  const today = new Date().toDateString();
+  const now = new Date();
 
-  if (!lastReset || lastReset !== today) {
-  ["pushups","situps","squats","running"].forEach(goal => {
-    localStorage.setItem(goal, "");
-  });
-  localStorage.setItem("lastDailyReset", today);
-}
+  if (!lastReset) {
+    localStorage.setItem("lastDailyReset", now.toDateString());
+    return;
+  }
+
+  const last = new Date(lastReset);
+
+  // Reset ONLY if a NEW DAY has actually started
+  if (now.getDate() !== last.getDate() ||
+      now.getMonth() !== last.getMonth() ||
+      now.getFullYear() !== last.getFullYear()) {
+
+    ["pushups", "situps", "squats", "running"].forEach(goal => {
+      localStorage.setItem(goal, 0);
+    });
+
+    localStorage.setItem("lastDailyReset", now.toDateString());
+  }
 }
 
 if ("serviceWorker" in navigator) {
@@ -527,5 +539,13 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
   }
 });
 
+["pushups", "situps", "squats", "running"].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener("input", () => {
+      localStorage.setItem(id, el.value);
+    });
+  }
+});
 
 
