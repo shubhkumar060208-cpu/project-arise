@@ -54,20 +54,24 @@ window.onload = function () {
   checkDailyReset();
 
   // Workout
-  if (document.getElementById("pushups")) {
-    document.getElementById("pushups").value = localStorage.getItem("pushups") || 0;
-    document.getElementById("situps").value = localStorage.getItem("situps") || 0;
-    document.getElementById("squats").value = localStorage.getItem("squats") || 0;
-    document.getElementById("running").value = localStorage.getItem("running") || 0;
-  }
+ if (document.getElementById("pushups")) {
+  ["pushups", "situps", "squats", "running"].forEach(id => {
+    const saved = localStorage.getItem(id);
+    if (saved !== null) {
+      document.getElementById(id).value = saved;
+    }
+  });
+}
 
   // Skills
-  if (document.getElementById("coding")) {
-    document.getElementById("coding").value = localStorage.getItem("coding") || 0;
-    document.getElementById("reading").value = localStorage.getItem("reading") || 0;
-    document.getElementById("meditation").value = localStorage.getItem("meditation") || 0;
-    document.getElementById("discipline").value = localStorage.getItem("discipline") || 0;
-  }
+ if (document.getElementById("coding")) {
+  ["coding", "reading", "meditation", "discipline"].forEach(id => {
+    const saved = localStorage.getItem(id);
+    if (saved !== null) {
+      document.getElementById(id).value = saved;
+    }
+  });
+}
 
   // Experiences
   if (document.getElementById("experienceList")) {
@@ -547,5 +551,6 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
     });
   }
 });
+
 
 
