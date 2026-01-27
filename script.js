@@ -553,6 +553,16 @@ function scheduleTimedReminder(hour = 9, minute = 0) {
   }
 });
 
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a");
+  if (!a) return;
+
+  const href = a.getAttribute("href");
+  if (href && !href.startsWith("#")) {
+    e.preventDefault();
+    window.location.href = href;
+  }
+});
 
 
 
